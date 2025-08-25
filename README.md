@@ -1,8 +1,8 @@
-# Landing Page – Estructura Semántica y Accesibilidad
+# Landing Page – Estructura Semántica, Accesibilidad y Diseño Responsive
 
 ## Descripción
 
-Esta landing page está desarrollada utilizando HTML5 semántico y buenas prácticas de accesibilidad. El objetivo es ofrecer una estructura clara, fácil de navegar y comprensible tanto para usuarios como para tecnologías asistivas.
+Esta landing page está desarrollada con HTML5 semántico, y un diseño adaptable a cualquier dispositivo. El objetivo es ofrecer una estructura clara, fácil de navegar y comprensible tanto para todos los usuarios.
 
 ---
 
@@ -13,7 +13,7 @@ Esta landing page está desarrollada utilizando HTML5 semántico y buenas práct
   Se utiliza `aria-label="Navegación principal"` para mejorar la accesibilidad.
 
 - **`<nav>`**  
-  Incluye enlaces ancla que llevan a las secciones "Inicio", "Producto" y "Preguntas frecuentes".
+  Incluye enlaces ancla que llevan a las secciones "Inicio", "Producto", "Preguntas frecuentes", etc.
 
 - **`<main>`**  
   Agrupa el contenido principal de la página, dividido en secciones:
@@ -21,40 +21,59 @@ Esta landing page está desarrollada utilizando HTML5 semántico y buenas práct
   - **`<section id="hero">`**  
     Presenta el producto con una imagen destacada, un título y una frase de valor.
 
-  - **`<section>`**  
-    Lista las características principales del producto, cada una acompañada de un ícono descriptivo.
+  - **`<section id="caracteristicas">`**  
+    Muestra una grilla de tarjetas de características, cada una con un ícono, título y descripción.  
+    Se utiliza Flexbox para el diseño de las tarjetas.
 
-  - **`<section>`**  
-    Incluye una sección de preguntas frecuentes usando la estructura `<dl>`, `<dt>`, `<dd>`, y puede contener imágenes explicativas.
+  - **`<section id="preguntas-frecuentes">`**  
+    Incluye una sección de preguntas frecuentes usando la estructura `<dl>`, `<dt>`, `<dd>`, y puede contener imágenes explicativas.  
+    Se usa Flexbox para alinear el contenido de cada respuesta.
+
+  - **`<section id="galeria">`**  
+    Galería de imágenes, cada una con una pequeña descripción textual debajo.  
+    Las imágenes y sus descripciones se agrupan en `.galeria-item` y se distribuyen en columnas usando Flexbox y media queries.
+
+  - **`<section id="testimonios">`**  
+    Sección de testimonios, donde cada opinión aparece en una tarjeta vertical.  
+    Las tarjetas se distribuyen con Flexbox y se adaptan a diferentes tamaños de pantalla.
 
 - **`<footer>`**  
-  Proporciona información de contacto y derechos de autor.  
+  Proporciona información de contacto, derechos de autor y una sección de términos y condiciones.  
   Se utiliza `aria-label="Pie de página"` para describir su función a lectores de pantalla.
 
 ---
 
-## Sugerencias de Mejora Aplicadas (por IA)
+## Cambios y Mejoras Recientes
 
-1. **Navegación Accesible:**  
-   Se añadió `aria-label` al `<nav>` para que los lectores de pantalla identifiquen la navegación principal.
+- **Sección de Características:**  
+  Ahora es una grilla de tarjetas verticales con ícono, título y descripción, usando Flexbox.
 
-2. **Imágenes con Descripción:**  
-   Todas las imágenes usan el atributo `alt` para describir su contenido, facilitando la comprensión a usuarios con discapacidad visual.
+- **Sección de Galería:**  
+  Cada imagen y su descripción están agrupadas en `.galeria-item` para mantenerlas juntas en todas las resoluciones.  
+  El número de columnas se ajusta automáticamente con media queries.
 
-3. **Enlaces Ancla:**  
-   Los enlaces de navegación usan `href="#seccion"` para llevar al usuario directamente a la sección correspondiente.
+- **Sección de Testimonios:**  
+  Añadida una grilla de tarjetas de testimonios, usando Flexbox para la disposición y adaptabilidad.
 
-4. **Jerarquía de Encabezados:**  
-   Se utilizan correctamente los encabezados (`<h1>`, `<h2>`, `<dt>`) para mantener una estructura lógica y accesible.
+- **Navegación Mejorada:**  
+  El nav usa Flexbox y se adapta a pantallas pequeñas apilando los enlaces verticalmente.
 
-5. **Footer Accesible:**  
-   El `<footer>` incluye `aria-label` para describir su función.
+- **Accesibilidad:**  
+  Uso de atributos ARIA, textos alternativos en imágenes y jerarquía de encabezados.
 
-6. **Sugerencias adicionales:**  
-   - Se recomienda agregar un formulario de contacto para mejorar la interacción.
-   - Se sugiere mejorar el contraste y la legibilidad con CSS.
-   - Se aconseja agregar un botón de llamada a la acción (CTA) en la sección hero.
-   - Se recomienda asegurar el diseño responsive mediante CSS.
+---
+
+## Breakpoints y Media Queries
+
+La página utiliza media queries para asegurar un diseño responsive:
+
+- **Navegación (`header nav`):**
+  - En pantallas menores a 600px, los enlaces se apilan verticalmente (`flex-direction: column;`).
+
+- **Galería de imágenes (`.galeria-item`):**
+  - **Pantallas grandes (≥900px):** 3 columnas (`width: 300px` por item).
+  - **Pantallas medianas (600px–899px):** 2 columnas (`width: 250px` por item).
+  - **Pantallas pequeñas (≤590px):** 1 columna (`width: 100%` por item).
 
 ---
 
